@@ -1,0 +1,53 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/Crop.DoneCancelBar"
+    android:background="#3F51B5">
+
+    <LinearLayout
+        android:id="@+id/btn_cancel"
+        style="@style/Crop.ActionButton"
+        android:background="?android:attr/selectableItemBackground"
+        android:clickable="true"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <View
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="@drawable/crop__ic_cancel" />
+
+        <TextView
+            style="@style/Crop.ActionButtonText.Cancel"
+            android:layout_marginLeft="5dp"
+            android:textColor="#ffffff"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="1px"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="18dp"
+        android:layout_marginTop="18dp"
+        android:background="#ffffff" />
+
+
+    <LinearLayout
+        android:id="@+id/btn_done"
+        style="@style/Crop.ActionButton"
+        android:background="?android:attr/selectableItemBackground"
+        android:clickable="true"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <View
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="@drawable/crop__ic_done" />
+
+        <TextView
+            style="@style/Crop.ActionButtonText.Done"
+            android:layout_marginLeft="5dp"
+            android:textColor="#ffffff"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+</LinearLayout>

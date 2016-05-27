@@ -1,0 +1,407 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/main_interval_v2"
+        android:layout_marginTop="@dimen/main_interval_v3"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="惊雷"
+            android:textColor="@color/text_c1"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/main_interval_v2"
+            android:text="26岁"
+            android:textColor="#888888"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:layout_width="13dp"
+            android:layout_height="13dp"
+            android:layout_marginLeft="@dimen/main_interval_v2"
+            android:scaleType="fitXY"
+            android:src="@drawable/profile_gender_male" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/main_interval_v2"
+        android:layout_marginTop="@dimen/main_interval_v1"
+        android:text="点击编辑账户信息 (如姓名、年龄、性别)"
+        android:textColor="#888888"
+        android:textSize="12sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="@dimen/main_interval_v3"
+        android:background="#f0f0f0" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/main_interval_v2"
+        android:layout_marginTop="@dimen/main_interval_v3"
+        android:text="我的信息"
+        android:textColor="#fa6969"
+        android:textSize="14sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/main_interval_v2"
+        android:layout_marginTop="@dimen/main_interval_v3"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/reminder_music" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/main_interval_v2"
+            android:text="IT/互联网/通信"
+            android:textColor="@color/text_c1" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/main_interval_v2"
+        android:layout_marginTop="@dimen/main_interval_v3"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/reminder_map" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/main_interval_v2"
+            android:text="浙江省 杭州市 江干区 火车东站附近"
+            android:textColor="@color/text_c1" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/main_interval_v2"
+        android:layout_marginTop="@dimen/main_interval_v3"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/reminder_coffee" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/main_interval_v2"
+            android:text="喜欢喝咖啡"
+            android:textColor="@color/text_c1" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/main_interval_v2"
+        android:layout_marginTop="@dimen/main_interval_v3"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/reminder_movie" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/main_interval_v2"
+            android:text="科幻电影 变形金刚 美国队长 钢铁侠"
+            android:textColor="@color/text_c1" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/main_interval_v2"
+        android:layout_marginTop="@dimen/main_interval_v3"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/reminder_sushi" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/main_interval_v2"
+            android:text="工作节奏慢一些，生活舒适一些"
+            android:textColor="@color/text_c1" />
+
+    </LinearLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="@dimen/main_interval_v3"
+        android:background="#f0f0f0" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/main_interval_v2"
+        android:layout_marginTop="@dimen/main_interval_v3"
+        android:text="我的社交账号"
+        android:textColor="#fa6969"
+        android:textSize="14sp" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/main_interval_v2"
+        android:layout_marginTop="@dimen/main_interval_v3"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/reminder_music" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/main_interval_v2"
+            android:text="IT/互联网/通信"
+            android:textColor="@color/text_c1" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/main_interval_v2"
+        android:layout_marginTop="@dimen/main_interval_v3"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/reminder_map" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/main_interval_v2"
+            android:text="浙江省 杭州市 江干区 火车东站附近"
+            android:textColor="@color/text_c1" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/main_interval_v2"
+        android:layout_marginTop="@dimen/main_interval_v3"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/reminder_coffee" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/main_interval_v2"
+            android:text="喜欢喝咖啡"
+            android:textColor="@color/text_c1" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/main_interval_v2"
+        android:layout_marginTop="@dimen/main_interval_v3"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/reminder_movie" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/main_interval_v2"
+            android:text="科幻电影 变形金刚 美国队长 钢铁侠"
+            android:textColor="@color/text_c1" />
+
+    </LinearLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="@dimen/main_interval_v3"
+        android:background="#f0f0f0" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/main_interval_v2"
+        android:layout_marginTop="@dimen/main_interval_v3"
+        android:text="兴趣爱好"
+        android:textColor="#fa6969"
+        android:textSize="14sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/main_interval_v2"
+        android:layout_marginTop="@dimen/main_interval_v3"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/reminder_music" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/main_interval_v2"
+            android:text="IT/互联网/通信"
+            android:textColor="@color/text_c1" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/main_interval_v2"
+        android:layout_marginTop="@dimen/main_interval_v3"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/reminder_map" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/main_interval_v2"
+            android:text="浙江省 杭州市 江干区 火车东站附近"
+            android:textColor="@color/text_c1" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/main_interval_v2"
+        android:layout_marginTop="@dimen/main_interval_v3"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/reminder_coffee" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/main_interval_v2"
+            android:text="喜欢喝咖啡"
+            android:textColor="@color/text_c1" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/main_interval_v3"
+        android:layout_marginLeft="@dimen/main_interval_v2"
+        android:layout_marginTop="@dimen/main_interval_v3"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/reminder_movie" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/main_interval_v2"
+            android:text="科幻电影 变形金刚 美国队长 钢铁侠"
+            android:textColor="@color/text_c1" />
+
+    </LinearLayout>
+
+</LinearLayout>

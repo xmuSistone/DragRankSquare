@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/drag_item_imageview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#f1f1f1"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"
+        android:scaleType="fitXY" />
+
+    <ImageView
+        android:id="@+id/add_view"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_centerInParent="true"
+        android:scaleType="fitXY"
+        android:src="@drawable/plus" />
+
+    <View
+        android:id="@+id/drag_item_mask_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:background="?android:attr/selectableItemBackground"
+        android:clickable="true"
+        android:scaleType="fitXY" />
+
+</RelativeLayout>
