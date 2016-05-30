@@ -80,10 +80,11 @@ public class DraggableSquareView extends ViewGroup {
 
         int len = allStatus.length;
         for (int i = 0; i < len; i++) {
+            // 渲染结束之后，朝viewGroup中添加子View
             DraggableItemView itemView = new DraggableItemView(getContext());
             itemView.setStatus(allStatus[i]);
             itemView.setParentView(this);
-            originViewPositionList.add(new Point());
+            originViewPositionList.add(new Point()); //  原始位置点，由此初始化，一定与子View的status绑定
             addView(itemView);
         }
     }
@@ -113,13 +114,17 @@ public class DraggableSquareView extends ViewGroup {
         }
     }
 
-    // 删除某一个ImageView
+    /**
+     * 删除某一个ImageView时，该imageView变成空的，需要移动到队尾
+     */
     public void onDedeleteImage(DraggableItemView deleteView) {
         int status = deleteView.getStatus();
         int lastDraggableViewStatus = -1;
+        // 顺次将可拖拽的view往前移
         for (int i = status + 1; i < allStatus.length; i++) {
             DraggableItemView itemView = getItemViewByStatus(i);
             if (itemView.isDraggable()) {
+                // 可拖拽的view往前移
                 lastDraggableViewStatus = i;
                 switchPosition(i, i - 1);
             } else {
@@ -127,6 +132,7 @@ public class DraggableSquareView extends ViewGroup {
             }
         }
         if (lastDraggableViewStatus > 0) {
+            // 被delete的view移动到队尾
             deleteView.switchPosition(lastDraggableViewStatus);
         }
     }
@@ -138,6 +144,8 @@ public class DraggableSquareView extends ViewGroup {
 
         @Override
         public void onViewPositionChanged(View changedView, int left, int top, int dx, int dy) {
+            // draggingView拖动的时候，如果与其它子view交换位置，其他子view位置改变，也会进入这个回调
+            // 所以此处加了一层判断，剔除不关心的回调，以优化性能
             if (changedView == draggingView) {
                 DraggableItemView changedItemView = (DraggableItemView) changedView;
                 switchPositionIfNeeded(changedItemView);
@@ -161,7 +169,6 @@ public class DraggableSquareView extends ViewGroup {
         public int clampViewPositionHorizontal(View child, int left, int dx) {
             DraggableItemView itemView = (DraggableItemView) child;
             itemView.updateEndSpringX(dx);
-            System.out.println("clampViewPositionHorizontal dx=" + dx);
             return left + dx;
         }
 
@@ -169,13 +176,12 @@ public class DraggableSquareView extends ViewGroup {
         public int clampViewPositionVertical(View child, int top, int dy) {
             DraggableItemView itemView = (DraggableItemView) child;
             itemView.updateEndSpringY(dy);
-            System.out.println("clampViewPositionVertical dy=" + dy);
             return top + dy;
         }
     }
 
     /**
-     * view拖动的时候，看看是否需要互换位置
+     * 根据draggingView的位置，看看是否需要与其它itemView互换位置
      */
     private void switchPositionIfNeeded(DraggableItemView draggingView) {
         int centerX = draggingView.getLeft() + sideLength / 2;
@@ -291,7 +297,9 @@ public class DraggableSquareView extends ViewGroup {
         return false;
     }
 
-
+    /**
+     * 根据status获取itemView
+     */
     private DraggableItemView getItemViewByStatus(int status) {
         int num = getChildCount();
         for (int i = 0; i < num; i++) {

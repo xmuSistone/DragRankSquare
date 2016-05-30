@@ -93,7 +93,6 @@ public class MainActivity extends AppCompatActivity {
         if (resultCode == RESULT_OK) {
             Uri uri = Crop.getOutput(result);
             String imagePath = uri.toString();
-            System.out.println("imagePath=" + imagePath);
             dragSquare.fillItemImage(imageStatus, imagePath, isModify);
 
         } else if (resultCode == Crop.RESULT_ERROR) {
