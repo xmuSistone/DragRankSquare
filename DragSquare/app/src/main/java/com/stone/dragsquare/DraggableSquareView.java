@@ -22,7 +22,7 @@ import java.util.List;
  */
 public class DraggableSquareView extends ViewGroup {
     // ACTION_DOWN按下后超过这个时间，就直接touch拦截，不会调用底层view的onClick事件
-    private static final int INTERCEPT_TIME_SLOP = 500;
+    private static final int INTERCEPT_TIME_SLOP = 200;
     private final int[] allStatus = {DraggableItemView.STATUS_LEFT_TOP, DraggableItemView.STATUS_RIGHT_TOP,
             DraggableItemView.STATUS_RIGHT_MIDDLE, DraggableItemView.STATUS_RIGHT_BOTTOM,
             DraggableItemView.STATUS_MIDDLE_BOTTOM, DraggableItemView.STATUS_LEFT_BOTTOM};
