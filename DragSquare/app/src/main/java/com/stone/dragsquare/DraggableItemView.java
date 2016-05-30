@@ -43,7 +43,7 @@ public class DraggableItemView extends FrameLayout {
     private boolean hasSetCurrentSpringValue = false;
     private DraggableSquareView parentView;
     private SpringConfig springConfigCommon = SpringConfig.fromOrigamiTensionAndFriction(140, 7);
-    private SpringConfig springConfigDragging = SpringConfig.fromOrigamiTensionAndFriction(400, 7);
+    private SpringConfig springConfigDragging = SpringConfig.fromOrigamiTensionAndFriction(300, 6);
     private int anchorX = Integer.MIN_VALUE, anchorY = Integer.MIN_VALUE;
     private View.OnClickListener dialogListener;
 
