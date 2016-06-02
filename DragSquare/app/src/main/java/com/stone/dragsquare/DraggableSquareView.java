@@ -245,7 +245,9 @@ public class DraggableSquareView extends ViewGroup {
                 }
                 break;
             case DraggableItemView.STATUS_RIGHT_BOTTOM:
-                if (centerX < everyWidth * 2) {
+                if (centerX < everyWidth * 2 && centerY < everyWidth * 2) {
+                    fromStatus = DraggableItemView.STATUS_LEFT_TOP;
+                } else if (centerX < everyWidth * 2) {
                     fromStatus = DraggableItemView.STATUS_MIDDLE_BOTTOM;
                 } else if (centerY < everyWidth * 2) {
                     fromStatus = DraggableItemView.STATUS_RIGHT_MIDDLE;
@@ -446,7 +448,6 @@ public class DraggableSquareView extends ViewGroup {
                 try {
                     sleep(INTERCEPT_TIME_SLOP);
                 } catch (InterruptedException e) {
-                    e.printStackTrace();
                 }
 
                 Message msg = anchorHandler.obtainMessage();
