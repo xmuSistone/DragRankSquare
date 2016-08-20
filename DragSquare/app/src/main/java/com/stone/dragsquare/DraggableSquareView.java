@@ -168,15 +168,13 @@ public class DraggableSquareView extends ViewGroup {
         @Override
         public int clampViewPositionHorizontal(View child, int left, int dx) {
             DraggableItemView itemView = (DraggableItemView) child;
-            itemView.updateEndSpringX(dx);
-            return left + dx;
+            return itemView.computeDraggingX(dx);
         }
 
         @Override
         public int clampViewPositionVertical(View child, int top, int dy) {
             DraggableItemView itemView = (DraggableItemView) child;
-            itemView.updateEndSpringY(dy);
-            return top + dy;
+            return itemView.computeDraggingY(dy);
         }
     }
 

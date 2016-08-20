@@ -43,8 +43,7 @@ public class DraggableItemView extends FrameLayout {
     private boolean hasSetCurrentSpringValue = false;
     private DraggableSquareView parentView;
     private SpringConfig springConfigCommon = SpringConfig.fromOrigamiTensionAndFriction(140, 7);
-    private SpringConfig springConfigDragging = SpringConfig.fromOrigamiTensionAndFriction(300, 6);
-    private int anchorX = Integer.MIN_VALUE, anchorY = Integer.MIN_VALUE;
+    private int moveDstX = Integer.MIN_VALUE, moveDstY = Integer.MIN_VALUE;
     private View.OnClickListener dialogListener;
 
     private String imagePath;
@@ -176,7 +175,9 @@ public class DraggableItemView extends FrameLayout {
 
         this.status = toStatus;
         Point point = parentView.getOriginViewPos(status);
-        animTo(point.x, point.y);
+        this.moveDstX = point.x;
+        this.moveDstY = point.y;
+        animTo(moveDstX, moveDstY);
     }
 
     public void animTo(int xPos, int yPos) {
@@ -208,23 +209,21 @@ public class DraggableItemView extends FrameLayout {
 
     public void saveAnchorInfo(int downX, int downY) {
         int halfSide = getMeasuredWidth() / 2;
-        anchorX = downX - halfSide;
-        anchorY = downY - halfSide;
+        moveDstX = downX - halfSide;
+        moveDstY = downY - halfSide;
     }
 
     /**
      * 真正开始动画
      */
     public void startAnchorAnimation() {
-        if (anchorX == Integer.MIN_VALUE || anchorY == Integer.MIN_VALUE) {
+        if (moveDstX == Integer.MIN_VALUE || moveDstX == Integer.MIN_VALUE) {
             return;
         }
 
         springX.setOvershootClampingEnabled(true);
         springY.setOvershootClampingEnabled(true);
-        springX.setSpringConfig(springConfigDragging);
-        springY.setSpringConfig(springConfigDragging);
-        animTo(anchorX, anchorY);
+        animTo(moveDstX, moveDstY);
         scaleSize(DraggableItemView.SCALE_LEVEL_3);
     }
 
@@ -234,6 +233,16 @@ public class DraggableItemView extends FrameLayout {
 
     public void setScreenY(int screenY) {
         this.offsetTopAndBottom(screenY - getTop());
+    }
+
+    public int computeDraggingX(int dx) {
+        this.moveDstX += dx;
+        return this.moveDstX;
+    }
+
+    public int computeDraggingY(int dy) {
+        this.moveDstY += dy;
+        return this.moveDstY;
     }
 
     /**
@@ -270,7 +279,9 @@ public class DraggableItemView extends FrameLayout {
 
         Point point = parentView.getOriginViewPos(status);
         setCurrentSpringPos(getLeft(), getTop());
-        animTo(point.x, point.y);
+        this.moveDstX = point.x;
+        this.moveDstY = point.y;
+        animTo(moveDstX, moveDstY);
     }
 
     public void fillImageView(String imagePath) {
