@@ -498,7 +498,7 @@ public class DraggableSquareView extends ViewGroup {
                 moveAnchorThread = null;
             }
 
-            if (null != draggingView) {
+            if (null != draggingView && draggingView.isDraggable()) {
                 draggingView.startAnchorAnimation();
             }
         }
