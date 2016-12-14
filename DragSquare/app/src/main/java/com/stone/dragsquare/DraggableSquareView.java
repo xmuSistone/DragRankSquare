@@ -40,7 +40,6 @@ public class DraggableSquareView extends ViewGroup {
     private int downX, downY;  // 按下时的坐标位置
     private Thread moveAnchorThread; // 按下的时候，itemView的重心移动，此为对应线程
     private Handler anchorHandler; // itemView需要移动重心，此为对应的Handler
-    private Object synObj = new Object();
 
     public DraggableSquareView(Context context) {
         this(context, null);
@@ -218,12 +217,10 @@ public class DraggableSquareView extends ViewGroup {
                     return;
                 }
 
-                synchronized (this) {
-                    for (int i = 1; i <= fromChangeIndex; i++) {
-                        switchPosition(i, i - 1);
-                    }
-                    draggingView.setStatus(fromChangeIndex);
+                for (int i = 1; i <= fromChangeIndex; i++) {
+                    switchPosition(i, i - 1);
                 }
+                draggingView.setStatus(fromChangeIndex);
                 return;
             case DraggableItemView.STATUS_RIGHT_TOP:
                 if (centerX < everyWidth * 2) {
@@ -271,17 +268,15 @@ public class DraggableSquareView extends ViewGroup {
                 break;
         }
 
-        synchronized (synObj) {
-            if (fromStatus > 0) {
-                if (switchPosition(fromStatus, toStatus)) {
-                    draggingView.setStatus(fromStatus);
-                }
-            } else if (fromStatus == 0) {
-                for (int i = toStatus - 1; i >= 0; i--) {
-                    switchPosition(i, i + 1);
-                }
+        if (fromStatus > 0) {
+            if (switchPosition(fromStatus, toStatus)) {
                 draggingView.setStatus(fromStatus);
             }
+        } else if (fromStatus == 0) {
+            for (int i = toStatus - 1; i >= 0; i--) {
+                switchPosition(i, i + 1);
+            }
+            draggingView.setStatus(fromStatus);
         }
     }
 
