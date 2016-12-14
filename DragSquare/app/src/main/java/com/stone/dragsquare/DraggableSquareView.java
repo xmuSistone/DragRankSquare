@@ -402,7 +402,6 @@ public class DraggableSquareView extends ViewGroup {
     public boolean dispatchTouchEvent(MotionEvent ev) {
         if (ev.getAction() == MotionEvent.ACTION_DOWN) {
             // 手指按下的时候，需要把某些view bringToFront，否则的话，tryCapture将不按预期工作
-            getParent().requestDisallowInterceptTouchEvent(true);
             downX = (int) ev.getX();
             downY = (int) ev.getY();
             downTime = System.currentTimeMillis();
@@ -431,7 +430,10 @@ public class DraggableSquareView extends ViewGroup {
             bringChildToFront(itemView);
         }
         if (!itemView.isDraggable()) {
+            getParent().requestDisallowInterceptTouchEvent(false);
             return;
+        } else {
+            getParent().requestDisallowInterceptTouchEvent(true);
         }
 
         itemView.saveAnchorInfo(downX, downY);
