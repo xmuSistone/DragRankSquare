@@ -10,8 +10,6 @@ edit personal data which enables users to drag and rank image order
 ### 截图
 <td>
 	 <img src="capture1.gif" width="290" height="485" />
-	 <img src="capture2.gif" width="290" height="485" />
-	 <img src="capture3.gif" width="290" height="485" />
 </td>
 
 ### Apk下载
