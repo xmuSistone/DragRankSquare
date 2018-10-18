@@ -40,6 +40,7 @@ public class DraggableSquareView extends ViewGroup {
     private int downX, downY;  // 按下时的坐标位置
     private Thread moveAnchorThread; // 按下的时候，itemView的重心移动，此为对应线程
     private Handler anchorHandler; // itemView需要移动重心，此为对应的Handler
+    private boolean firstLayout = true;
 
     public DraggableSquareView(Context context) {
         this(context, null);
@@ -387,7 +388,12 @@ public class DraggableSquareView extends ViewGroup {
             itemPoint.y = itemTop;
 
             itemView.layout(itemLeft, itemTop, itemRight, itemBottom);
+
+            if (firstLayout) {
+                itemView.requestLayout();
+            }
         }
+        firstLayout = false;
     }
 
     @Override
