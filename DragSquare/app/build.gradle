@@ -10,6 +10,13 @@ android {
         targetSdkVersion 26
         versionCode 1
         versionName "1.0"
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                includeCompileClasspath true
+            }
+        }
+
     }
     buildTypes {
         release {
@@ -24,6 +31,7 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:26.1.0'
     compile 'com.facebook.rebound:rebound:0.3.8'
-    compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
+    compile 'com.github.bumptech.glide:glide:4.0.0'
+    compile 'com.github.bumptech.glide:compiler:4.0.0'
     compile project(':crop')
 }

@@ -10,13 +10,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import com.nostra13.universalimageloader.cache.disc.naming.HashCodeFileNameGenerator;
-import com.nostra13.universalimageloader.cache.memory.impl.LruMemoryCache;
-import com.nostra13.universalimageloader.core.DisplayImageOptions;
-import com.nostra13.universalimageloader.core.ImageLoader;
-import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
-import com.nostra13.universalimageloader.core.assist.QueueProcessingType;
-import com.nostra13.universalimageloader.core.download.BaseImageDownloader;
 import com.soundcloud.android.crop.Crop;
 
 import java.io.File;
@@ -30,19 +23,19 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        initImageLoader();
         setContentView(R.layout.activity_main);
         getSupportActionBar().setTitle("编辑个人资料");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        dragSquare = (DraggableSquareView) findViewById(R.id.drag_square);
+        dragSquare = findViewById(R.id.drag_square);
     }
 
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case android.R.id.home:// 点击返回图标事件
+            case android.R.id.home:
+                // 点击返回图标事件
                 this.finish();
             default:
                 return super.onOptionsItemSelected(item);
@@ -53,26 +46,6 @@ public class MainActivity extends AppCompatActivity {
         this.imageStatus = imageStatus;
         this.isModify = isModify;
         Crop.pickImage(this);
-    }
-
-    private void initImageLoader() {
-        ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(
-                this)
-                .memoryCacheExtraOptions(480, 800)
-                .threadPoolSize(3)
-                .threadPriority(Thread.NORM_PRIORITY - 1)
-                .tasksProcessingOrder(QueueProcessingType.FIFO)
-                .denyCacheImageMultipleSizesInMemory()
-                .memoryCache(new LruMemoryCache(2 * 1024 * 1024))
-                .memoryCacheSize(2 * 1024 * 1024).memoryCacheSizePercentage(13)
-                .discCacheSize(50 * 1024 * 1024)
-                .discCacheFileCount(100)
-                .discCacheFileNameGenerator(new HashCodeFileNameGenerator())
-                .imageDownloader(new BaseImageDownloader(this))
-                .defaultDisplayImageOptions(DisplayImageOptions.createSimple())
-                .writeDebugLogs().build();
-        ImageLoader imageLoader = ImageLoader.getInstance();
-        imageLoader.init(config);
     }
 
     @Override

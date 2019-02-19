@@ -9,13 +9,12 @@ import android.view.ViewTreeObserver;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.facebook.rebound.SimpleSpringListener;
 import com.facebook.rebound.Spring;
 import com.facebook.rebound.SpringConfig;
 import com.facebook.rebound.SpringSystem;
-import com.nostra13.universalimageloader.core.ImageLoader;
 
 /**
  * Created by xmuSistone on 2016/5/23.
@@ -287,7 +286,7 @@ public class DraggableItemView extends FrameLayout {
     public void fillImageView(String imagePath) {
         this.imagePath = imagePath;
         addView.setVisibility(View.GONE);
-        ImageLoader.getInstance().displayImage(imagePath, imageView);
+        Glide.with(imageView).load(imagePath).into(imageView);
     }
 
     // 以下两个get、set方法是为自定义的属性动画CustScale服务，不能删

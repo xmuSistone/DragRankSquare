@@ -21,25 +21,61 @@ import java.util.List;
  * Created by xmuSistone on 2016/5/23.
  */
 public class DraggableSquareView extends ViewGroup {
-    // ACTION_DOWN按下后超过这个时间，就直接touch拦截，不会调用底层view的onClick事件
+
+    /**
+     * ACTION_DOWN按下后超过这个时间，就直接touch拦截，不会调用底层view的onClick事件
+     */
     private static final int INTERCEPT_TIME_SLOP = 200;
     private final int[] allStatus = {DraggableItemView.STATUS_LEFT_TOP, DraggableItemView.STATUS_RIGHT_TOP,
             DraggableItemView.STATUS_RIGHT_MIDDLE, DraggableItemView.STATUS_RIGHT_BOTTOM,
             DraggableItemView.STATUS_MIDDLE_BOTTOM, DraggableItemView.STATUS_LEFT_BOTTOM};
 
-    private int mTouchSlop = 5; // 判定为滑动的阈值，单位是像素
-    private int spaceInterval = 4; // 小方块之间的间隔
+    /**
+     * 判定为滑动的阈值，单位是像素
+     */
+    private int mTouchSlop = 5;
+
+    /**
+     * 小方块之间的间隔
+     */
+    private int spaceInterval = 4;
     private final ViewDragHelper mDragHelper;
     private GestureDetectorCompat moveDetector;
 
-    private List<Point> originViewPositionList = new ArrayList<>(); // 保存最初状态时每个itemView的坐标位置
-    private DraggableItemView draggingView; // 正在拖拽的view
+    /**
+     * 保存最初状态时每个itemView的坐标位置
+     */
+    private List<Point> originViewPositionList = new ArrayList<>();
 
-    private int sideLength; // 每一个小方块的边长
-    private long downTime = 0; // 按下的时间
-    private int downX, downY;  // 按下时的坐标位置
-    private Thread moveAnchorThread; // 按下的时候，itemView的重心移动，此为对应线程
-    private Handler anchorHandler; // itemView需要移动重心，此为对应的Handler
+    /**
+     * 正在拖拽的view
+     */
+    private DraggableItemView draggingView;
+
+    /**
+     * 每一个小方块的边长
+     */
+    private int sideLength;
+
+    /**
+     * 按下的时间
+     */
+    private long downTime = 0;
+
+    /**
+     * 按下时的坐标位置
+     */
+    private int downX, downY;
+
+    /**
+     * 按下的时候，itemView的重心移动，此为对应线程
+     */
+    private Thread moveAnchorThread;
+
+    /**
+     * itemView需要移动重心，此为对应的Handler
+     */
+    private Handler anchorHandler;
     private boolean firstLayout = true;
 
     public DraggableSquareView(Context context) {
@@ -56,8 +92,10 @@ public class DraggableSquareView extends ViewGroup {
                 .create(this, 10f, new DragHelperCallback());
         moveDetector = new GestureDetectorCompat(context,
                 new MoveDetector());
-        moveDetector.setIsLongpressEnabled(false); // 不能处理长按事件，否则违背最初设计的初衷
-        spaceInterval = (int) getResources().getDimension(R.dimen.drag_square_interval); // 小方块之间的间隔
+        // 不能处理长按事件，否则违背最初设计的初衷
+        moveDetector.setIsLongpressEnabled(false);
+        // 小方块之间的间隔
+        spaceInterval = (int) getResources().getDimension(R.dimen.drag_square_interval);
 
         // 滑动的距离阈值由系统提供
         ViewConfiguration configuration = ViewConfiguration.get(getContext());
@@ -84,7 +122,8 @@ public class DraggableSquareView extends ViewGroup {
             DraggableItemView itemView = new DraggableItemView(getContext());
             itemView.setStatus(allStatus[i]);
             itemView.setParentView(this);
-            originViewPositionList.add(new Point()); //  原始位置点，由此初始化，一定与子View的status绑定
+            //  原始位置点，由此初始化，一定与子View的status绑定
+            originViewPositionList.add(new Point());
             addView(itemView);
         }
     }
@@ -325,7 +364,8 @@ public class DraggableSquareView extends ViewGroup {
         int itemBottom = 0;
         // 每个view的边长是everyLength * 2 + spaceInterval
         sideLength = everyLength * 2 + spaceInterval;
-        int halfSideLength = sideLength / 2; // 边长的一半
+        // 边长的一半
+        int halfSideLength = sideLength / 2;
         int rightCenter = r - spaceInterval - everyLength / 2;
         int bottomCenter = b - spaceInterval - everyLength / 2;
 

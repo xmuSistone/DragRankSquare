@@ -11,4 +11,4 @@ edit personal data which enables users to drag and rank image order
 ![PREVIEW](capture3.gif)
 
 ### Apk下载
-[apk download](app-debug.apk) (就在该工程之中)
+[apk download](app-release.apk) (就在该工程之中)
